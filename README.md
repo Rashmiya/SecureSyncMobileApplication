@@ -359,19 +359,40 @@ Full API documentation is available in `/docs/api/`.
 
 ---
 
-### Branching strategy
+### Branch Naming Convention
+
+Branches follow the pattern: `type/LINEAR-ID-short-description`
+
+| Prefix     | Branches from | Merges into        | When to use                           |
+| ---------- | ------------- | ------------------ | ------------------------------------- |
+| `feature`  | `develop`     | `develop`          | New functionality                     |
+| `fix`      | `develop`     | `develop`          | Bug caught in development             |
+| `hotfix`   | `main`        | `main` + `develop` | Critical production bug               |
+| `refactor` | `develop`     | `develop`          | Code restructure, no behaviour change |
+| `chore`    | `develop`     | `develop`          | Config, tooling, maintenance          |
+| `docs`     | `develop`     | `develop`          | Documentation only                    |
+
+### Examples
 
 ```
 main          ← production only, protected
 └── develop   ← integration branch
-    └── feature/FE-001-design-tokens     ← feature branches
-    └── feature/BE-012-jwt-refresh
-    └── fix/FE-007-vault-upload-crash
+    └── feature/FE-1-design-tokens     ← feature branches
+    └── feature/BE-12-jwt-refresh
+    └── fix/FE-7-vault-upload-crash
+    └── hotfix/BE-23-biometric-login-broken
+    └── refactor/BE-15-extract-jwt-use-case
+    └── docs/readme-update-setup-guide
 ```
 
-Branch names follow the pattern: `type/LINEAR-ID-short-description`
+### Rules
 
-### Commit convention
+- Always branch from `develop` (except `hotfix` — branch from `main`)
+- Use the Linear issue ID where one exists
+- Short description in kebab-case (lowercase, hyphens not underscores)
+- Never work directly on `main` or `develop`
+
+### Commit Naming convention
 
 Branch names follow the pattern: `type(scope): short description in lowercase`
 
