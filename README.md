@@ -392,6 +392,27 @@ main          ← production only, protected
 - Short description in kebab-case (lowercase, hyphens not underscores)
 - Never work directly on `main` or `develop`
 
+## Linear–GitHub Integration
+
+Linear issues are automatically closed when a PR is merged
+into `develop` or `main`.
+
+### How to link a PR to a Linear issue
+
+Add one of these keywords followed by the issue ID in your
+PR description:
+
+This is already included in the PR template.
+Always replace the placeholder with the real issue ID.
+
+### Supported keywords
+
+| Keyword    | Example        |
+| ---------- | -------------- |
+| `Closes`   | Closes FE-11   |
+| `Fixes`    | Fixes BE-15    |
+| `Resolves` | Resolves FE-23 |
+
 ### Commit Naming convention
 
 Branch names follow the pattern: `type(scope): short description in lowercase`
