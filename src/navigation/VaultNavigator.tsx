@@ -11,6 +11,7 @@ import { VaultStackParamList } from "./types";
 
 const Stack = createNativeStackNavigator<VaultStackParamList>();
 
+// TODO:- Placeholder screens
 const PlaceholderScreen = ({ name }: { name: string }) => (
   <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
     <Text>Placeholder: {name}</Text>
