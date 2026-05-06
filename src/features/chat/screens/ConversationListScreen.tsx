@@ -1,12 +1,3 @@
-/**
- * SecureSync — Splash Screen (A1)
- *
- * Initial screen shown when app launches.
- * Will display SecureSync logo and trigger biometric check.
- *
- * Status: Placeholder (will be implemented in Phase 4 — Auth Feature)
- */
-
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { colors } from "../../../theme/colors";
