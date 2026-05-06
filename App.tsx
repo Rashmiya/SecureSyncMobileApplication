@@ -1,8 +1,11 @@
+import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator, StyleSheet } from "react-native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./src/store";
+import { RootNavigator } from "./src/navigation/RootNavigator";
+import { colors } from "./src/theme/colors";
 
 export default function App() {
   return (
@@ -10,30 +13,22 @@ export default function App() {
       <PersistGate
         loading={
           <View style={styles.loadingContainer}>
-            <ActivityIndicator size="large" color="#00AACC" />
+            <ActivityIndicator size="large" color={colors.brand.primary} />
           </View>
         }
         persistor={persistor}
       >
-        <View style={styles.container}>
-          <Text>Welcome ! SecureSync Mobile Application...</Text>
-          <StatusBar style="auto" />
-        </View>
+        <RootNavigator />
+        <StatusBar style="auto" />
       </PersistGate>
     </Provider>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   loadingContainer: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: colors.background.page,
     alignItems: "center",
     justifyContent: "center",
   },
