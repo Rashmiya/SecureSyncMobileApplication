@@ -8,7 +8,6 @@ export const ConversationListScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Conversation List Screen</Text>
-      //TODO:-
       <Text style={styles.subtitle}>Will be implemented in Phase 5</Text>
     </View>
   );

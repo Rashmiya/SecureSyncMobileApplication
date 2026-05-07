@@ -8,7 +8,6 @@ export const SettingsScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Settings Screen</Text>
-      //TODO:-
       <Text style={styles.subtitle}>Will be implemented in Phase 8</Text>
     </View>
   );

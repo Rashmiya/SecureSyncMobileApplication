@@ -8,7 +8,6 @@ export const SplashScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Splash Screen</Text>
-      //TODO:-
       <Text style={styles.subtitle}>Will be implemented in Phase 4</Text>
     </View>
   );
