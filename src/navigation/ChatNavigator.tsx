@@ -5,18 +5,15 @@ Stack navigator for the chat related screens.
  */
 
 import React from "react";
-import { View, Text } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ChatStackParamList } from "./types";
+import { ChatThreadScreen } from "../features/chat/screens/ChatThreadScreen";
+import { ConversationListScreen } from "../features/chat/screens/ConversationListScreen";
+import { FileAttachScreen } from "../features/chat/screens/FileAttachScreen";
+import { GroupInfoScreen } from "../features/chat/screens/GroupInfoScreen";
+import { SearchScreen } from "../features/chat/screens/SearchScreen";
 
 const Stack = createNativeStackNavigator<ChatStackParamList>();
-
-// TODO:- Placeholder screens
-const PlaceholderScreen = ({ name }: { name: string }) => (
-  <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-    <Text>Placeholder: {name}</Text>
-  </View>
-);
 
 export const ChatNavigator = () => {
   return (
@@ -28,22 +25,22 @@ export const ChatNavigator = () => {
     >
       <Stack.Screen
         name="ConversationList"
-        component={() => <PlaceholderScreen name="ConversationList" />}
+        component={ConversationListScreen}
         options={{ title: "Chats" }}
       />
       <Stack.Screen
         name="Search"
-        component={() => <PlaceholderScreen name="Search" />}
+        component={SearchScreen}
         options={{ title: "Search" }}
       />
       <Stack.Screen
         name="ChatThread"
-        component={() => <PlaceholderScreen name="ChatThread" />}
+        component={ChatThreadScreen}
         options={{ title: "Chat" }}
       />
       <Stack.Screen
         name="FileAttach"
-        component={() => <PlaceholderScreen name="FileAttach" />}
+        component={FileAttachScreen}
         options={{
           presentation: "modal",
           headerShown: true,
@@ -52,7 +49,7 @@ export const ChatNavigator = () => {
       />
       <Stack.Screen
         name="GroupInfo"
-        component={() => <PlaceholderScreen name="GroupInfo" />}
+        component={GroupInfoScreen}
         options={{ title: "Group Info" }}
       />
     </Stack.Navigator>

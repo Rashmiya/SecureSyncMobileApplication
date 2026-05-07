@@ -5,19 +5,18 @@ Stack navigator for the authentication flow.
  */
 
 import React from "react";
-import { View, Text } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { AuthStackParamList } from "./types";
+import { SplashScreen } from "../features/auth/screens/SplashScreen";
+import { BiometricPromptScreen } from "../features/auth/screens/BiometricPromptScreen";
+import { FirstTimeSetupScreen } from "../features/auth/screens/FirstTimeSetupScreen";
+import { BiometricSetupScreen } from "../features/auth/screens/BiometricSetupScreen";
+import { ProfileSetupScreen } from "../features/auth/screens/ProfileSetupScreen";
+import { CompanyCodeScreen } from "../features/auth/screens/CompanyCodeScreen";
+import { LockoutScreen } from "../features/auth/screens/LockoutScreen";
 
 // Create the stack navigator with our type definitions
 const Stack = createNativeStackNavigator<AuthStackParamList>();
-
-// TODO:- Placeholder screens
-const PlaceholderScreen = ({ name }: { name: string }) => (
-  <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-    <Text>Placeholder: {name}</Text>
-  </View>
-);
 
 export const AuthNavigator = () => {
   return (
@@ -28,34 +27,13 @@ export const AuthNavigator = () => {
         gestureEnabled: false, // Prevent swipe-back during auth
       }}
     >
-      <Stack.Screen
-        name="Splash"
-        component={() => <PlaceholderScreen name="Splash" />}
-      />
-      <Stack.Screen
-        name="BiometricPrompt"
-        component={() => <PlaceholderScreen name="BiometricPrompt" />}
-      />
-      <Stack.Screen
-        name="FirstTimeSetup"
-        component={() => <PlaceholderScreen name="FirstTimeSetup" />}
-      />
-      <Stack.Screen
-        name="BiometricSetup"
-        component={() => <PlaceholderScreen name="BiometricSetup" />}
-      />
-      <Stack.Screen
-        name="ProfileSetup"
-        component={() => <PlaceholderScreen name="ProfileSetup" />}
-      />
-      <Stack.Screen
-        name="CompanyCode"
-        component={() => <PlaceholderScreen name="CompanyCode" />}
-      />
-      <Stack.Screen
-        name="Lockout"
-        component={() => <PlaceholderScreen name="Lockout" />}
-      />
+      <Stack.Screen name="Splash" component={SplashScreen} />
+      <Stack.Screen name="BiometricPrompt" component={BiometricPromptScreen} />
+      <Stack.Screen name="FirstTimeSetup" component={FirstTimeSetupScreen} />
+      <Stack.Screen name="BiometricSetup" component={BiometricSetupScreen} />
+      <Stack.Screen name="ProfileSetup" component={ProfileSetupScreen} />
+      <Stack.Screen name="CompanyCode" component={CompanyCodeScreen} />
+      <Stack.Screen name="Lockout" component={LockoutScreen} />
     </Stack.Navigator>
   );
 };

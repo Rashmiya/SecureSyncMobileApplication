@@ -5,18 +5,14 @@ Stack navigator for admin dashboard screens.
  */
 
 import React from "react";
-import { View, Text } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { AdminStackParamList } from "./types";
+import { AdminOverviewScreen } from "../features/admin/screens/AdminOverviewScreen";
+import { AuditLogScreen } from "../features/admin/screens/AuditLogScreen";
+import { GroupManagementScreen } from "../features/admin/screens/GroupManagementScreen";
+import { UserManagementScreen } from "../features/admin/screens/UserManagementScreen";
 
 const Stack = createNativeStackNavigator<AdminStackParamList>();
-
-// TODO:- Placeholder screens
-const PlaceholderScreen = ({ name }: { name: string }) => (
-  <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-    <Text>Placeholder: {name}</Text>
-  </View>
-);
 
 export const AdminNavigator = () => {
   return (
@@ -28,22 +24,22 @@ export const AdminNavigator = () => {
     >
       <Stack.Screen
         name="AdminOverview"
-        component={() => <PlaceholderScreen name="AdminOverview" />}
+        component={AdminOverviewScreen}
         options={{ title: "Admin Dashboard" }}
       />
       <Stack.Screen
         name="UserManagement"
-        component={() => <PlaceholderScreen name="UserManagement" />}
+        component={UserManagementScreen}
         options={{ title: "Users" }}
       />
       <Stack.Screen
         name="GroupManagement"
-        component={() => <PlaceholderScreen name="GroupManagement" />}
+        component={GroupManagementScreen}
         options={{ title: "Groups" }}
       />
       <Stack.Screen
         name="AuditLog"
-        component={() => <PlaceholderScreen name="AuditLog" />}
+        component={AuditLogScreen}
         options={{ title: "Audit Log" }}
       />
     </Stack.Navigator>
