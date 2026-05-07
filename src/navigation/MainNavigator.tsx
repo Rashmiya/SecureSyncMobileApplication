@@ -5,7 +5,6 @@ Bottom tab navigator for the main app
  */
 
 import React from "react";
-import { View, Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useSelector } from "react-redux";
 import { MainTabParamList } from "./types";
@@ -14,15 +13,9 @@ import { ChatNavigator } from "./ChatNavigator";
 import { VaultNavigator } from "./VaultNavigator";
 import { AdminNavigator } from "./AdminNavigator";
 import { colors } from "../theme/colors";
+import { SettingsScreen } from "../features/settings/screens/SettingsScreen";
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
-
-// TODO:- Placeholder for Profile/Settings (single screen, not a navigator)
-const ProfilePlaceholder = () => (
-  <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-    <Text>Settings (G1)</Text>
-  </View>
-);
 
 export const MainNavigator = () => {
   // Read user role from Redux to conditionally show Admin tab
@@ -63,7 +56,7 @@ export const MainNavigator = () => {
       )}
       <Tab.Screen
         name="Profile"
-        component={ProfilePlaceholder}
+        component={SettingsScreen}
         options={{
           tabBarLabel: "Profile",
         }}
