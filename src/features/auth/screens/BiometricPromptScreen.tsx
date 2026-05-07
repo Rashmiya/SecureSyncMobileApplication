@@ -8,7 +8,6 @@ export const BiometricPromptScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Biometric Prompt Screen</Text>
-      //TODO:-
       <Text style={styles.subtitle}>Will be implemented in Phase 4</Text>
     </View>
   );

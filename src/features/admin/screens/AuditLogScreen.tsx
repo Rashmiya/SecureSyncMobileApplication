@@ -8,7 +8,6 @@ export const AuditLogScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Audit Log Screen</Text>
-      //TODO:-
       <Text style={styles.subtitle}>Will be implemented in Phase 7</Text>
     </View>
   );

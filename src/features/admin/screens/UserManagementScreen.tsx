@@ -8,7 +8,6 @@ export const UserManagementScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>User Management Screen</Text>
-      //TODO:-
       <Text style={styles.subtitle}>Will be implemented in Phase 7</Text>
     </View>
   );

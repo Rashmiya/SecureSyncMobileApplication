@@ -8,7 +8,6 @@ export const FileAttachScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>File Attach Screen</Text>
-      //TODO:-
       <Text style={styles.subtitle}>Will be implemented in Phase 5</Text>
     </View>
   );
