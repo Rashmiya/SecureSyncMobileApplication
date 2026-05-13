@@ -1,0 +1,110 @@
+import React from "react";
+import {
+  Pressable,
+  Text,
+  ActivityIndicator,
+  StyleSheet,
+  View,
+  ViewStyle,
+} from "react-native";
+import { colors } from "../../theme/colors";
+import { typography } from "../../theme/typography";
+import { spacing } from "../../theme/spacing";
+import { radius } from "../../theme/radius";
+
+interface PrimaryButtonProps {
+  title: string;
+  onPress: () => void;
+  loading?: boolean;
+  disabled?: boolean;
+  fullWidth?: boolean;
+  testID?: string;
+  style?: ViewStyle;
+}
+
+export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
+  title,
+  onPress,
+  loading = false,
+  disabled = false,
+  fullWidth = true,
+  testID,
+  style,
+}) => {
+  // Loading also blocks taps — prevents double submit on slow networks
+  const isInactive = disabled || loading;
+
+  return (
+    <Pressable
+      onPress={onPress}
+      disabled={isInactive}
+      testID={testID}
+      accessibilityRole="button"
+      accessibilityState={{ disabled: isInactive, busy: loading }}
+      accessibilityLabel={title}
+      style={({ pressed }) => [
+        styles.base,
+        fullWidth && styles.fullWidth,
+        isInactive ? styles.disabled : styles.default,
+        disabled ? styles.disabled : styles.default,
+        pressed && !isInactive && styles.pressed,
+        style,
+      ]}
+    >
+      {/* Fixed height slot — swaps title, spinner without layout jump */}
+      <View style={styles.contentSlot}>
+        {loading ? (
+          <ActivityIndicator
+            size="small"
+            color={colors.text.onBrand}
+            testID={testID ? `${testID}-spinner` : undefined}
+          />
+        ) : (
+          <Text
+            style={[styles.label, disabled && styles.labelDisabled]}
+            numberOfLines={1}
+          >
+            {title}
+          </Text>
+        )}
+      </View>
+    </Pressable>
+  );
+};
+
+const styles = StyleSheet.create({
+  base: {
+    minHeight: spacing.touch,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.md,
+    borderRadius: radius.md,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  fullWidth: {
+    width: "100%",
+  },
+  default: {
+    backgroundColor: colors.brand.primary,
+  },
+  disabled: {
+    backgroundColor: colors.background.input,
+  },
+  pressed: {
+    opacity: 0.7,
+  },
+  contentSlot: {
+    height: typography.button.lineHeight,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  label: {
+    fontFamily: typography.button.fontFamily,
+    fontSize: typography.button.fontSize,
+    lineHeight: typography.button.lineHeight,
+    color: colors.text.onBrand,
+  },
+  labelDisabled: {
+    color: colors.text.tertiary,
+  },
+});
