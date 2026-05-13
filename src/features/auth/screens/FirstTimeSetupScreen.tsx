@@ -3,7 +3,11 @@ import { View, Text, StyleSheet } from "react-native";
 import { colors } from "../../../theme/colors";
 import { typography } from "../../../theme/typography";
 import { spacing } from "../../../theme/spacing";
-import { PrimaryButton } from "../../../components/buttons/PrimaryButton";
+import {
+  PrimaryButton,
+  SecondaryButton,
+  DangerButton,
+} from "../../../components/buttons";
 
 export const FirstTimeSetupScreen = () => {
   return (
@@ -33,6 +37,36 @@ export const FirstTimeSetupScreen = () => {
         title="Continue (Loading)"
         onPress={() => console.log("tapped loading button")}
         loading
+        style={{ marginTop: spacing.sm }}
+      />
+
+      {/* State 4 — Secondary , Default */}
+      <SecondaryButton
+        title="Cancel"
+        onPress={() => console.log("secondary tapped")}
+        style={{ marginTop: spacing.sm }}
+      />
+
+      {/* State 5 — Secondary , Disabled */}
+      <SecondaryButton
+        title="Cancel (Disabled)"
+        onPress={() => {}}
+        disabled
+        style={{ marginTop: spacing.sm }}
+      />
+
+      {/* State 6 — Danger , Default */}
+      <DangerButton
+        title="Revoke Access"
+        onPress={() => console.log("danger tapped")}
+        style={{ marginTop: spacing.sm }}
+      />
+
+      {/* State 7 — Danger , Disabled */}
+      <DangerButton
+        title="Revoke Access (Disabled)"
+        onPress={() => {}}
+        disabled
         style={{ marginTop: spacing.sm }}
       />
     </View>
